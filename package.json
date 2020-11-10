@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "jest",
-    "start_local": "METRIC_EXIST_URL='http://localhost:26660' GRPC_SERVER='localhost:50051' METRIC_ADDRESS=oasis1qpsnzv8qz4fu3lwps2tc3eg5pnryzl4h7cqxruzf METRIC_VALIDATOR_ADDRESS=oasis1qpsnzv8qz4fu3lwps2tc3eg5pnryzl4h7cqxruzf ./node_modules/.bin/nodemon --watch src -e ts --delay 2 src/index.ts",
+    "start_local": "METRIC_EXIST_URL='http://localhost:26660/metrics' GRPC_SERVER='localhost:50051' METRIC_ADDRESS=oasis1qpsnzv8qz4fu3lwps2tc3eg5pnryzl4h7cqxruzf METRIC_VALIDATOR_ADDRESS=oasis1qpsnzv8qz4fu3lwps2tc3eg5pnryzl4h7cqxruzf ./node_modules/.bin/nodemon --watch src -e ts --delay 2 src/index.ts",
     "start": "./node_modules/.bin/ts-node src/index.ts"
   },
   "author": "",
