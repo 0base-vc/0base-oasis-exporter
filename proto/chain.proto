@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package chain;
+option go_package = "github.com/figment-networks/oasis-rpc-proxy/grpc/chain/chainpb";
+
+import "google/protobuf/timestamp.proto";
+
+message GetStatusRequest {}
+
+message GetStatusResponse {
+    string Id = 1;
+    string Name = 2;
+    google.protobuf.Timestamp GenesisTime = 3;
+    int64 GenesisHeight = 4;
+}
+
+message GetHeadRequest {}
+
+message GetHeadResponse {
+    int64 Height = 1;
+    google.protobuf.Timestamp Time = 2;
+}
+
+message GetMetaByHeightRequest {
+    int64 height = 1;
+}
+
+message GetMetaByHeightResponse {
+    int64 height = 1;
+    google.protobuf.Timestamp time = 2;
+    uint64 app_version = 3;
+    uint64 block_version = 4;
+    uint64 epoch = 5;
+}
+
+message GetConstantsRequest {}
+
+message GetConstantsResponse {
+    string CommonPoolAddress = 1;
+}
+
+service ChainService {
+    rpc GetConstants (GetConstantsRequest)  returns (GetConstantsResponse) {};
+    rpc GetHead (GetHeadRequest) returns (GetHeadResponse) {};
+    rpc GetStatus (GetStatusRequest) returns (GetStatusResponse) {};
+    rpc GetMetaByHeight (GetMetaByHeightRequest) returns (GetMetaByHeightResponse) {};
+}
