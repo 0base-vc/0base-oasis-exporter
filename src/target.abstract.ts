@@ -1,7 +1,7 @@
 import * as express from 'express';
 
 export default abstract class TargetAbstract {
-    abstract async makeMetrics(): Promise<string>;
+    abstract makeMetrics(): Promise<string>;
 
     public async metrics(): Promise<express.RequestHandler> {
         return async (_req, response, next) => {
