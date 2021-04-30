@@ -66,7 +66,7 @@ export default class OasisClient {
         return await new Promise((resolve) => {
             return this.accountClient.getByAddress(request, (error, response) => {
                 if (error) {
-                    console.error(error.message);
+                    console.error(error);
                     const result = this.cache[key];
                     return resolve(result === undefined ? '' : result);
                 } else {
@@ -95,7 +95,7 @@ export default class OasisClient {
 
             return this.accountClient.getByAddress(addressRequest, (error, response) => {
                 if (error) {
-                    console.error(error.message);
+                    console.error(error);
                     return resolve(result === undefined ? 1 : result);
                 } else {
                     const shares = Number(this.toBigint(response.getAccount().getEscrow().getActive().getTotalshares_asU8()).valueOf());
@@ -121,7 +121,7 @@ export default class OasisClient {
             return this.getSharesRatio(address).then((ratio: number) => {
                 return this.delegationClient.getByAddress(request, (error, response) => {
                     if (error) {
-                        console.error(error.message);
+                        console.error(error);
                         const result = this.cache[key];
                         return resolve(result === undefined ? '' : result);
                     } else {
@@ -148,7 +148,7 @@ export default class OasisClient {
             return this.getSharesRatio(address).then((ratio: number) => {
                 return this.debondingDelegationClient.getByAddress(request, (error, response) => {
                     if (error) {
-                        console.error(error.message);
+                        console.error(error);
                         const result = this.cache[key];
                         return resolve(result === undefined ? '' : result);
                     } else {
@@ -174,7 +174,7 @@ export default class OasisClient {
         return await new Promise((resolve) => {
             return this.chainClient.getHead(request, (error, response) => {
                 if (error) {
-                    console.error(error.message);
+                    console.error(error);
                     const result = this.cache[key];
                     return resolve(result === undefined ? '' : result);
                 } else {
@@ -194,7 +194,7 @@ export default class OasisClient {
         return await new Promise((resolve) => {
             return this.validatorClient.getByHeight(heightRequest, (error, response) => {
                 if (error) {
-                    console.error(error.message);
+                    console.error(error);
                     const result = this.cache[key];
                     return resolve(result === undefined ? '' : result);
                 } else {
@@ -221,7 +221,7 @@ export default class OasisClient {
         return await new Promise((resolve) => {
             return this.stateClint.getByHeight(heightRequest, (error, response) => {
                 if (error) {
-                    console.error(error.message);
+                    console.error(error);
                     const result = this.cache[key];
                     return resolve(result === undefined ? '' : result);
                 } else {

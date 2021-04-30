@@ -79,7 +79,7 @@ export default class Target extends TargetAbstract {
             customMetrics = this.registry.metrics();
 
         } catch (e) {
-            console.error(e.message);
+            console.error('makeMetrics', e);
         }
 
 
@@ -123,7 +123,7 @@ export default class Target extends TargetAbstract {
             this.cache[url] = result;
             return result;
         }).catch((e) => {
-            console.error(e.message);
+            console.error(e);
 
             const result = this.cache[url];
             if (result === undefined)
