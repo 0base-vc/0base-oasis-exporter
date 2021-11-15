@@ -223,7 +223,7 @@ export default class OasisClient {
                 if (error) {
                     console.error(error);
                     const result = this.cache[key];
-                    return resolve(result === undefined ? '' : result);
+                    return resolve(result === undefined ? 120 : result);
                 } else {
                     const result = response.getState().getScheduler().getParams().getMaxvalidators();
                     this.cache[key] = result;
