@@ -73,7 +73,7 @@ export default class Target extends TargetAbstract {
             await Promise.all([
                 await this.updateAddressBalance(this.address),
                 await this.updateRank(height, this.validatorAddress),
-                await this.updateMaxValidator(height),
+                await this.updateMaxValidator(),
             ]);
 
             customMetrics = this.registry.metrics();
@@ -106,9 +106,8 @@ export default class Target extends TargetAbstract {
         this.rankGauge.labels(validator).set(rank);
     }
 
-    private async updateMaxValidator(height: number): Promise<void> {
-        const limit = await this.client.getMaxValidator(height);
-        this.maxValidatorGauge.set(limit);
+    private async updateMaxValidator(): Promise<void> {
+        this.maxValidatorGauge.set(120);
     }
 
     private async loadExistMetrics(): Promise<string> {
